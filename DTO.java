@@ -1,4 +1,6 @@
-package com.company;
+package com.fyu.dto;
+
+import com.fyu.dao.*;
 
 public class DTO
 {
@@ -7,15 +9,15 @@ public class DTO
 
     static public void saveAccount(Account account)
     {
-        DataBase.accounts.add(account);
+        Database.accounts.add(account);
     }
     static public void deleteAccount(long  accountId)
     {
-        for(Account account:DataBase.accounts )
+        for(Account account:Database.accounts )
         {
             if (account.getAccountId() == accountId)
             {
-                DataBase.accounts.remove(account);
+                Database.accounts.remove(account);
                 break;
             }
 
@@ -24,7 +26,7 @@ public class DTO
 
     static public Account findAccount(long  accountId)
     {
-        for(Account account:DataBase.accounts )
+        for(Account account:Database.accounts )
         {
             if (account.getAccountId() == accountId)
             {
@@ -44,16 +46,16 @@ public class DTO
 
     static public void saveCustomer(Customer customer)
     {
-        DataBase.customers.add(customer);
+        Database.customers.add(customer);
     }
 
     static public void deleteCustomer(long  customerId)
     {
-        for(Customer customer:DataBase.customers )
+        for(Customer customer:Database.customers )
         {
             if (customer.getCustomerId() == customerId)
             {
-                DataBase.accounts.remove(customer);
+                Database.customers.remove(customer);
                 break;
             }
 
@@ -62,7 +64,7 @@ public class DTO
 
     static public Customer findCustomer(long  customerId)
     {
-        for(Customer customer:DataBase.customers )
+        for(Customer customer:Database.customers )
         {
             if (customer.getCustomerId() == customerId)
             {
@@ -77,17 +79,17 @@ public class DTO
 //------------------------------employees-------------------------------------
 static public void saveEmployee(Employee employee)
 {
-    DataBase.employees.add(employee);
+    Database.employees.add(employee);
 }
 
 
     static public void deleteEmployee(long  employeeId)
     {
-        for(Employee employee:DataBase.employees )
+        for(Employee employee:Database.employees )
         {
             if (employee.getEmployeeId() == employeeId)
             {
-                DataBase.accounts.remove(employee);
+                Database.employees.remove(employee);
                 break;
             }
 
@@ -95,7 +97,7 @@ static public void saveEmployee(Employee employee)
     }
     static public Employee findEmployee(long   employeeId)
     {
-        for( Employee  employee:DataBase. employees )
+        for( Employee  employee:Database.employees )
         {
             if ( employee.getEmployeeId() == employeeId)
             {
@@ -105,5 +107,38 @@ static public void saveEmployee(Employee employee)
         }
         return null;
     }
+    
+  //---------------------------------------------------------------------------
+  //------------------------------managers-------------------------------------
+  static public void saveManager(Manager manager)
+  {
+      Database.managers.add(manager);
+  }
+
+
+      static public void deleteManager(long  managerId)
+      {
+          for(Manager manager:Database.managers)
+          {
+              if (manager.getManagerId() == managerId)
+              {
+                  Database.managers.remove(manager);
+                  break;
+              }
+
+          }
+      }
+      static public Manager findManager(long managerId)
+      {
+          for( Manager  manager:Database.managers)
+          {
+              if ( manager.getManagerId() == managerId)
+              {
+                  return  manager;
+              }
+
+          }
+          return null;
+      }
 
 }
